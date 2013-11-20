@@ -8,7 +8,6 @@ public class Frame
 	public static void main(String[] args)
 	{
 		new Frame();
-
 	}
 	
 	public Frame()
@@ -19,7 +18,6 @@ public class Frame
 		frame.setSize(1152, 695);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-				
 	}
 
 
