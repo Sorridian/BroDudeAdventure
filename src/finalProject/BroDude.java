@@ -18,11 +18,9 @@ private ArrayList <Bullet> Bullets = new ArrayList <Bullet>();
 
 	public BroDude()
 	{
-		
 		still = right.getImage();
 		x = 10;
 		y = 570;
-		
 	}
 	
 	public void move()
