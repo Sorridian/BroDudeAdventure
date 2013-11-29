@@ -3,31 +3,25 @@ package finalProject;
 import java.awt.*;
 import java.util.ArrayList;
 import java.awt.event.KeyEvent;
+import java.awt.geom.Point2D;
+
 import javax.swing.ImageIcon;
 
-public class BroDude
+public class BroDude extends PlayerBase implements EnviromentObject
 {
-int x;
-int changeX;
-int y;
-int changeY;
-Image still;
-ImageIcon right = new ImageIcon("C:/BroDudeCharacterArrowRight.png");
-ImageIcon left = new ImageIcon("C:/BroDudeCharacterArrowLeft.png");
-private ArrayList <Bullet> Bullets = new ArrayList <Bullet>();
+	int x, y;
+	int changeX, changeY;
+	
+	private static String left = "src/data/brodudeleft.png";
+	private static String right = "src/data/broduderight.png";
+	
+	private ArrayList <Bullet> Bullets = new ArrayList <Bullet>();
 
 	public BroDude()
 	{
-		still = right.getImage();
+		super(left,right,"right");
 		x = 10;
 		y = 570;
-	}
-	
-	public void move()
-	{
-		x = x + changeX;
-		y = y + changeY;
-		
 	}
 	
 	public int getX()
@@ -48,35 +42,19 @@ private ArrayList <Bullet> Bullets = new ArrayList <Bullet>();
 	
 	public void keyPressed(KeyEvent e)
 	{
-		
-		 /*switch (e.getKeyCode()) {
-		   case KeyEvent.VK_UP:
-		   break;
-
-		   case KeyEvent.VK_DOWN:
-		   break;
-
-		   case KeyEvent.VK_LEFT:
-		   break;
-
-		   case KeyEvent.VK_RIGHT:
-		   break;
-
-		   case KeyEvent.VK_SPACE:
-		   break;*/
 		   
 		int key = e.getKeyCode();
 		
 		if (key == KeyEvent.VK_LEFT)
 		{
 			changeX = -1;
-			still = left.getImage();
+			still = super.left.getImage();
 		}
 		
 		if (key == KeyEvent.VK_RIGHT)
 		{
 			changeX = 1;
-			still = right.getImage();
+			still = super.right.getImage();
 		}
 		
 		if (key == KeyEvent.VK_CONTROL)
@@ -101,12 +79,49 @@ private ArrayList <Bullet> Bullets = new ArrayList <Bullet>();
 	public void shoot()
 	{
 		Bullet B = new Bullet(x, y);
-		Bullets.add(B);
+		Bullets.add(B);	
 	}
 	
 	public ArrayList getBullets()
 	{
 		return Bullets;
+	}
+
+	@Override
+	public void OnCollision() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void MoveRight() {
+		// TODO Auto-generated method stub
+		changeX = 1;
+	}
+
+	@Override
+	public void MoveLeft() {
+		// TODO Auto-generated method stub
+		changeX = -1;
+	}
+
+	@Override
+	public void MoveUp() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void MoveDown() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Update() {
+		// TODO Auto-generated method stub
+		x = x + changeX;
+		y = y + changeY;
 	}
 }
 

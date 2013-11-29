@@ -33,8 +33,7 @@ public class Frame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1152, 695);
 		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
-				
+		frame.setVisible(true);		
 	}
 
 
